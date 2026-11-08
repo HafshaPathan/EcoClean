@@ -1,0 +1,295 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:host {
+  display: block;
+  font-family: Arial, sans-serif;
+  color: #183b2b;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 7%;
+  background: white;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.07);
+}
+
+.logo {
+  color: #16924a;
+  font-size: 27px;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.navbar nav {
+  display: flex;
+  gap: 30px;
+}
+
+.navbar nav a,
+.login-link {
+  text-decoration: none;
+  color: #183b2b;
+  font-weight: 600;
+}
+
+.navbar nav a:hover,
+.login-link:hover {
+  color: #16924a;
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+}
+
+.register-btn,
+.primary-btn {
+  background: #16924a;
+  color: white;
+  padding: 12px 22px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.register-btn:hover,
+.primary-btn:hover {
+  background: #0f6a36;
+}
+
+/* Hero */
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 45px;
+  padding: 80px 7%;
+  background: #ebf9ef;
+}
+
+.hero-content {
+  flex: 1;
+  max-width: 580px;
+}
+
+.tag,
+.section-tag {
+  display: inline-block;
+  color: #16924a;
+  background: #d9f5e2;
+  padding: 9px 16px;
+  border-radius: 30px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.hero h1 {
+  color: #0f6a36;
+  font-size: 48px;
+  line-height: 1.2;
+  margin-bottom: 20px;
+}
+
+.hero p {
+  color: #52665a;
+  font-size: 17px;
+  line-height: 1.8;
+  margin-bottom: 28px;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.outline-btn {
+  border: 2px solid #16924a;
+  color: #16924a;
+  padding: 10px 20px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.outline-btn:hover {
+  background: #d9f5e2;
+}
+
+.hero-image {
+  flex: 1;
+  max-width: 500px;
+}
+
+.hero-image img {
+  width: 100%;
+  height: 350px;
+  object-fit: cover;
+  border-radius: 18px;
+}
+
+/* About */
+.about {
+  padding: 80px 10%;
+  text-align: center;
+}
+
+.about h2,
+.services h2,
+.how-it-works h2 {
+  color: #0f6a36;
+  font-size: 34px;
+  margin-bottom: 20px;
+}
+
+.about p {
+  max-width: 780px;
+  margin: auto;
+  color: #52665a;
+  font-size: 17px;
+  line-height: 1.8;
+}
+
+/* Services */
+.services {
+  padding: 80px 7%;
+  text-align: center;
+  background: #f7fbf8;
+}
+
+.service-container {
+  display: flex;
+  gap: 25px;
+  margin-top: 35px;
+}
+
+.service-card {
+  flex: 1;
+  background: white;
+  padding: 35px 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+}
+
+.service-icon {
+  font-size: 38px;
+  margin-bottom: 18px;
+}
+
+.service-card h3 {
+  color: #16924a;
+  margin-bottom: 15px;
+}
+
+.service-card p {
+  color: #52665a;
+  line-height: 1.7;
+}
+
+/* How it works */
+.how-it-works {
+  padding: 80px 7%;
+  text-align: center;
+}
+
+.steps {
+  display: flex;
+  gap: 25px;
+  margin-top: 35px;
+}
+
+.step-card {
+  flex: 1;
+  padding: 30px 22px;
+  background: #ebf9ef;
+  border-radius: 12px;
+}
+
+.step-number {
+  width: 55px;
+  height: 55px;
+  margin: 0 auto 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: #16924a;
+  color: white;
+  font-weight: bold;
+}
+
+.step-card h3 {
+  color: #0f6a36;
+  margin-bottom: 12px;
+}
+
+.step-card p {
+  color: #52665a;
+  line-height: 1.7;
+}
+
+/* Footer */
+.footer {
+  background: #0f6a36;
+  color: white;
+  text-align: center;
+  padding: 35px 20px;
+}
+
+.footer h2 {
+  margin-bottom: 12px;
+}
+
+.footer p {
+  margin-top: 10px;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .navbar {
+    flex-wrap: wrap;
+    gap: 18px;
+  }
+
+  .navbar nav {
+    order: 3;
+    width: 100%;
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+
+  .hero {
+    flex-direction: column;
+    padding: 55px 7%;
+  }
+
+  .hero h1 {
+    font-size: 35px;
+  }
+
+  .hero-image {
+    max-width: 100%;
+  }
+
+  .hero-image img {
+    height: 250px;
+  }
+
+  .service-container,
+  .steps {
+    flex-direction: column;
+  }
+
+  .nav-actions {
+    gap: 12px;
+  }
+}
