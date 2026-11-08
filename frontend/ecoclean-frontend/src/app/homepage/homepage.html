@@ -1,114 +1,357 @@
 
-<!-- Navbar -->
-<header class="navbar">
-  <a routerLink="/" class="logo">🌿 EcoClean</a>
+<!-- ================= NAVBAR ================= -->
+<!--header class="navbar">
+  <a routerLink="/" class="logo">
+    <span class="logo-icon">✳</span>
+    Eco<span>Clean</span>
+  </a>
 
-  <nav>
-    <a routerLink="/">Home</a>
+  <nav class="nav-links">
+    <a routerLink="/" class="active">Home</a>
     <a routerLink="/about">About</a>
     <a routerLink="/services">Services</a>
   </nav>
 
   <div class="nav-actions">
-    <a routerLink="/login" class="login-link">Login</a>
-    <a routerLink="/register" class="register-btn">Get Started</a>
+    <a routerLink="/login" class="login-link">Sign In</a>
+    <a routerLink="/register" class="nav-btn">
+      Get Started <span>↗</span>
+    </a>
   </div>
-</header>
+</!--header-->
 
-<!-- Hero Section -->
+
+<!-- ================= HERO SECTION ================= -->
 <section class="hero">
+
   <div class="hero-content">
-    <span class="tag">🌱 Smart Waste Management</span>
 
-    <h1>Let's Build a Cleaner and Greener Future</h1>
+    <div class="hero-tag">
+      <span class="status-dot"></span>
+      SMART WASTE MANAGEMENT PLATFORM
+    </div>
 
-    <p>
-      Report roadside garbage, request waste collection,
-      and help create cleaner communities with EcoClean.
-      Together, we can make a difference.
+    <h1>
+      A Cleaner Planet.
+      <span>A Smarter Tomorrow.</span>
+    </h1>
+
+    <p class="hero-description">
+      Transforming waste management through smarter
+      reporting, efficient collection and sustainable
+      recycling. Together, let's build cleaner communities.
     </p>
 
     <div class="hero-actions">
-      <a routerLink="/login" class="primary-btn">Report Garbage</a>
-      <a routerLink="/login" class="outline-btn">Request Collection</a>
+      <a routerLink="/login" class="primary-btn">
+        Report Garbage <span>↗</span>
+      </a>
+
+      <a routerLink="/login" class="secondary-btn">
+        Request Collection <span>→</span>
+      </a>
     </div>
+
+    <div class="hero-bottom">
+      <div class="hero-stat">
+        <strong>01</strong>
+        <span>Report Waste</span>
+      </div>
+
+      <div class="stat-divider"></div>
+
+      <div class="hero-stat">
+        <strong>02</strong>
+        <span>Collect Waste</span>
+      </div>
+
+      <div class="stat-divider"></div>
+
+      <div class="hero-stat">
+        <strong>03</strong>
+        <span>Protect Earth</span>
+      </div>
+    </div>
+
   </div>
 
-  <div class="hero-image">
-    <img
-      src="/imgs/heropic.jpg"
-      alt="Waste recycling and environmental protection"
-    />
+
+  <div class="hero-visual">
+
+    <div class="image-frame">
+      <img
+        src="/imgs/heropic.jpg"
+        alt="EcoClean sustainable waste management"
+      />
+
+      <div class="image-overlay"></div>
+
+      <div class="image-label">
+        <span class="label-icon">✳</span>
+        <div>
+          <strong>Think Green.</strong>
+          <small>Live Sustainably.</small>
+        </div>
+      </div>
+    </div>
+
+    <div class="floating-card">
+      <div class="floating-icon">♻</div>
+      <div>
+        <strong>Make Every Action Count</strong>
+        <small>Small steps. Big impact.</small>
+      </div>
+    </div>
+
+    <div class="visual-decoration"></div>
+
   </div>
+
 </section>
 
-<!-- About Section -->
-<section class="about" id="about">
-  <span class="section-tag">Who We Are</span>
-  <h2>About EcoClean</h2>
 
-  <p>
-    EcoClean is a smart waste management platform connecting
-    citizens, administrators and waste collectors to make
-    waste collection easier, faster and more efficient.
-  </p>
+<!-- ================= ABOUT SECTION ================= -->
+<section class="about-section">
+
+  <div class="section-heading">
+    <span class="eyebrow">01 / WHO WE ARE</span>
+
+    <h2>
+      Redefining the way
+      <span>our cities stay clean.</span>
+    </h2>
+  </div>
+
+  <div class="about-content">
+
+    <p>
+      EcoClean is a smart waste management platform
+      designed to connect citizens, administrators
+      and waste collectors through one efficient system.
+    </p>
+
+    <p>
+      From reporting roadside garbage to requesting
+      waste collection, we make it easier to take
+      responsibility for our environment.
+    </p>
+
+    <a routerLink="/about" class="text-link">
+      Discover EcoClean <span>↗</span>
+    </a>
+
+  </div>
+
 </section>
 
-<!-- Services Section -->
-<section class="services" id="services">
-  <span class="section-tag">What We Do</span>
-  <h2>Our Services</h2>
 
-  <div class="service-container">
+<!-- ================= SERVICES SECTION ================= -->
+<section class="services-section">
+
+  <div class="section-top">
+
+    <div>
+      <span class="eyebrow">02 / WHAT WE DO</span>
+      <h2>Solutions for a <span>greener world.</span></h2>
+    </div>
+
+    <p>
+      Simple digital solutions that make
+      waste management smarter and more accessible.
+    </p>
+
+  </div>
+
+
+  <div class="service-grid">
+
     <article class="service-card">
-      <div class="service-icon">🗑️</div>
+
+      <div class="card-top">
+        <span class="service-icon">⌖</span>
+        <span class="card-number">01</span>
+      </div>
+
       <h3>Report Garbage</h3>
-      <p>Report garbage found on roads and public places.</p>
+
+      <p>
+        Report roadside garbage and waste in public
+        spaces with location details for faster action.
+      </p>
+
+      <a routerLink="/login" class="card-link">
+        Explore service <span>↗</span>
+      </a>
+
     </article>
 
-    <article class="service-card">
-      <div class="service-icon">🚛</div>
+
+    <article class="service-card featured-card">
+
+      <div class="card-top">
+        <span class="service-icon">♧</span>
+        <span class="card-number">02</span>
+      </div>
+
       <h3>Waste Collection</h3>
-      <p>Request waste collection from your location.</p>
+
+      <p>
+        Schedule waste collection requests and
+        connect with the right collection team.
+      </p>
+
+      <a routerLink="/login" class="card-link">
+        Explore service <span>↗</span>
+      </a>
+
     </article>
+
 
     <article class="service-card">
-      <div class="service-icon">♻️</div>
-      <h3>Recycling</h3>
-      <p>Encourage proper waste sorting and recycling.</p>
+
+      <div class="card-top">
+        <span class="service-icon">♻</span>
+        <span class="card-number">03</span>
+      </div>
+
+      <h3>Smart Recycling</h3>
+
+      <p>
+        Encourage responsible waste segregation
+        and promote a more sustainable environment.
+      </p>
+
+      <a routerLink="/services" class="card-link">
+        Explore service <span>↗</span>
+      </a>
+
     </article>
+
   </div>
+
 </section>
 
-<!-- How It Works -->
-<section class="how-it-works">
-  <span class="section-tag">Simple Process</span>
-  <h2>How EcoClean Works</h2>
 
-  <div class="steps">
-    <article class="step-card">
-      <div class="step-number">01</div>
+<!-- ================= HOW IT WORKS ================= -->
+<section class="process-section">
+
+  <div class="process-heading">
+    <span class="eyebrow">03 / OUR PROCESS</span>
+    <h2>Three steps. <span>One cleaner future.</span></h2>
+    <p>
+      Making waste management simple, organised and effective.
+    </p>
+  </div>
+
+
+  <div class="process-grid">
+
+    <article class="process-card">
+      <span class="process-number">01</span>
+      <div class="process-icon">⌖</div>
       <h3>Report</h3>
-      <p>Citizens submit garbage reports with location details.</p>
+      <p>
+        Citizens report garbage and submit
+        location information through EcoClean.
+      </p>
     </article>
 
-    <article class="step-card">
-      <div class="step-number">02</div>
+    <article class="process-card">
+      <span class="process-number">02</span>
+      <div class="process-icon">↗</div>
       <h3>Collect</h3>
-      <p>Administrators review reports and assign collectors.</p>
+      <p>
+        Administrators review requests and
+        assign the appropriate waste collectors.
+      </p>
     </article>
 
-    <article class="step-card">
-      <div class="step-number">03</div>
-      <h3>Clean</h3>
-      <p>Waste is collected and sent for proper processing.</p>
+    <article class="process-card">
+      <span class="process-number">03</span>
+      <div class="process-icon">♻</div>
+      <h3>Transform</h3>
+      <p>
+        Collected waste moves towards proper
+        disposal and responsible processing.
+      </p>
     </article>
+
   </div>
+
 </section>
 
-<!-- Footer -->
-<footer class="footer" id="contact">
-  <h2>🌿 EcoClean</h2>
-  <p>Working together for a cleaner tomorrow.</p>
-  <p>© 2026 EcoClean. All rights reserved.</p>
-</footer>
+
+<!-- ================= CTA SECTION ================= -->
+<section class="cta-section">
+
+  <div class="cta-content">
+    <span class="eyebrow">BE PART OF THE CHANGE</span>
+
+    <h2>
+      The future is not just green.
+      <span>It's in our hands.</span>
+    </h2>
+
+    <p>
+      Join EcoClean and take the first step
+      towards a cleaner and more sustainable community.
+    </p>
+
+    <a routerLink="/register" class="cta-btn">
+      Join EcoClean <span>↗</span>
+    </a>
+  </div>
+
+  <div class="cta-decoration">✳</div>
+
+</section>
+
+
+<!-- ================= FOOTER ================= -->
+<footer class="footer">
+
+  <div class="footer-main">
+
+    <div class="footer-brand">
+      <a routerLink="/" class="logo">
+        <span class="logo-icon">✳</span>
+        Eco<span>Clean</span>
+      </a>
+
+      <p>
+        Smarter waste management.
+        Cleaner communities.
+        A sustainable tomorrow.
+      </p>
+    </div>
+
+
+    <div class="footer-column">
+      <h4>Explore</h4>
+      <a routerLink="/">Home</a>
+      <a routerLink="/about">About Us</a>
+      <a routerLink="/services">Our Services</a>
+    </div>
+
+
+    <div class="footer-column">
+      <h4>Get Started</h4>
+      <a routerLink="/login">Sign In</a>
+      <a routerLink="/register">Create Account</a>
+    </div>
+
+
+    <div class="footer-column">
+      <h4>Our Mission</h4>
+      <p>Making sustainability a part of everyday life.</p>
+    </div>
+
+  </div>
+
+
+  <!--div class="footer-bottom">
+    <span>© 2026 EcoClean. All rights reserved.</span>
+    <span>Designed for a greener tomorrow ✳</span>
+  </!--div>
+
+</footer-->
