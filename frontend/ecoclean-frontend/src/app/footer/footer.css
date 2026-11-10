@@ -1,5 +1,5 @@
 
-:host {
+/*:host {
   display: block;
 }
 
@@ -19,7 +19,7 @@
 }
 
 /* Brand */
-.footer-logo {
+/*.footer-logo {
   display: inline-flex;
   align-items: center;
   gap: 7px;
@@ -52,7 +52,7 @@
 }
 
 /* Footer columns */
-.footer-column {
+/*.footer-column {
   display: flex;
   flex-direction: column;
   gap: 15px;
@@ -79,7 +79,7 @@
 }
 
 /* Bottom section */
-.footer-bottom {
+/*.footer-bottom {
   max-width: 1250px;
   margin: auto;
   border-top: 1px solid #35634a;
@@ -96,7 +96,7 @@
 }
 
 /* Responsive */
-@media (max-width: 900px) {
+/*@media (max-width: 900px) {
   .footer-container {
     grid-template-columns: repeat(2, 1fr);
     gap: 40px;
@@ -119,4 +119,220 @@
     text-align: center;
     padding: 20px 0;
   }
+}*/
+
+:host {
+  display: block;
+  --dark: #20291e;
+  --dark-soft: #293426;
+  --olive: #596b42;
+  --olive-light: #829268;
+  --lime: #c1d49a;
+  --cream: #f2f1e8;
+  --muted: #a7ae9d;
+  font-family: 'Inter', 'Segoe UI', sans-serif;
 }
+
+/* ================= FOOTER ================= */
+
+.footer {
+  background: var(--dark);
+  color: #ffffff;
+  padding: 75px 8% 25px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Subtle decorative glow */
+.footer::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 8%;
+  width: 84%;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--olive-light),
+    transparent
+  );
+}
+
+/* Main Container */
+
+.footer-container {
+  max-width: 1400px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 1.7fr 1fr 1fr 1.3fr;
+  gap: 55px;
+  padding-bottom: 55px;
+}
+
+/* ================= BRAND ================= */
+
+.footer-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #ffffff;
+  font-size: 27px;
+  font-weight: 750;
+  letter-spacing: -1px;
+  text-decoration: none;
+}
+
+.footer-logo span:first-child {
+  color: var(--lime);
+  font-size: 27px;
+}
+
+.footer-logo span:last-child {
+  color: var(--lime);
+}
+
+.footer-brand p {
+  max-width: 290px;
+  margin-top: 22px;
+  color: #aab3a0;
+  font-size: 13px;
+  line-height: 1.9;
+}
+
+/* Brand Badge */
+
+.footer-badge {
+  display: inline-flex;
+  align-items: center;
+  margin-top: 25px;
+  padding: 10px 14px;
+  border: 1px solid rgba(193, 212, 154, 0.22);
+  border-radius: 4px;
+  background: rgba(193, 212, 154, 0.06);
+  color: var(--lime);
+  font-size: 11px;
+  font-weight: 600;
+}
+
+/* ================= FOOTER COLUMNS ================= */
+
+.footer-column {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.footer-column h3 {
+  color: var(--lime);
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.footer-column a {
+  width: fit-content;
+  color: #aab3a0;
+  font-size: 13px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.footer-column a:hover {
+  color: var(--lime);
+  transform: translateX(5px);
+}
+
+/* ================= CONTACT ================= */
+
+.contact-column p {
+  color: #aab3a0;
+  font-size: 12px;
+  line-height: 1.8;
+}
+
+.contact-column a {
+  color: var(--lime);
+  font-size: 12px;
+  margin-top: 3px;
+}
+
+.contact-column a:hover {
+  color: #ffffff;
+}
+
+/* ================= BOTTOM FOOTER ================= */
+
+.footer-bottom {
+  max-width: 1400px;
+  margin: auto;
+  padding-top: 24px;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+.footer-bottom p {
+  color: #929c87;
+  font-size: 11px;
+  line-height: 1.8;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 1000px) {
+  .footer-container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 45px 35px;
+  }
+}
+
+@media (max-width: 600px) {
+  .footer {
+    padding: 60px 7% 25px;
+  }
+
+  .footer-container {
+    grid-template-columns: 1fr 1fr;
+    gap: 40px 20px;
+  }
+
+  .footer-brand {
+    grid-column: 1 / -1;
+  }
+
+  .footer-brand p {
+    max-width: 100%;
+  }
+
+  .footer-logo {
+    font-size: 24px;
+  }
+
+  .footer-column h3 {
+    font-size: 13px;
+  }
+
+  .footer-column a {
+    font-size: 12px;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+}
+
+@media (max-width: 380px) {
+  .footer-container {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-brand {
+    grid-column: auto;
+  }
+}
+

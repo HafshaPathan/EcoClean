@@ -1,5 +1,5 @@
 
-import { Component } from '@angular/core';
+/*import { Component } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 
 @Component({
@@ -19,4 +19,29 @@ export class Navigation {
   toggleMenu() {
     this.menuOpen = !this.menuOpen;
   }
+}
+*/
+
+import { Component } from '@angular/core';
+import { RouterLink, RouterLinkActive } from '@angular/router';
+
+@Component({
+  selector: 'app-navigation',
+  standalone: true,
+  imports: [RouterLink, RouterLinkActive],
+  templateUrl: './navigation.html',
+  styleUrl: './navigation.css'
+})
+export class Navigation {
+
+  menuOpen = false;
+
+  toggleMenu(): void {
+    this.menuOpen = !this.menuOpen;
+  }
+
+  closeMenu(): void {
+    this.menuOpen = false;
+  }
+
 }
