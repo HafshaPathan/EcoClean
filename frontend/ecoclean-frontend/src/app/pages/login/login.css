@@ -1,0 +1,301 @@
+
+:host {
+  display: block;
+}
+
+.auth-page {
+  min-height: 680px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background: #fff;
+}
+
+.auth-visual {
+  display: flex;
+  align-items: center;
+  padding: 65px 11%;
+  background:
+    radial-gradient(circle at 80% 15%, #ffffff18, transparent 30%),
+    linear-gradient(145deg, #164a2e, #247347);
+  color: white;
+}
+
+.visual-content {
+  width: 100%;
+  max-width: 500px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  min-height: 530px;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: white;
+  font-size: 24px;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.brand-icon {
+  font-size: 29px;
+}
+
+.brand > span:last-child > span {
+  color: #b7e4b8;
+}
+
+.visual-message {
+  margin: auto 0;
+}
+
+.eyebrow {
+  display: inline-block;
+  color: #6a9e74;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  margin-bottom: 17px;
+}
+
+.visual-message .eyebrow {
+  color: #b7e4b8;
+}
+
+.visual-message h1 {
+  max-width: 480px;
+  font-size: clamp(36px, 4.5vw, 53px);
+  line-height: 1.15;
+  letter-spacing: -2px;
+  margin: 0 0 22px;
+}
+
+.visual-message h1 span {
+  color: #b7e4b8;
+}
+
+.visual-message p {
+  max-width: 420px;
+  color: #d5e8d9;
+  font-size: 15px;
+  line-height: 1.9;
+}
+
+.visual-bottom {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #d5e8d9;
+  font-size: 13px;
+}
+
+.visual-bottom span {
+  font-size: 25px;
+}
+
+.visual-bottom p {
+  margin: 0;
+}
+
+.auth-form-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 8%;
+}
+
+.auth-card {
+  width: 100%;
+  max-width: 430px;
+}
+
+.mobile-brand {
+  display: none;
+}
+
+.form-heading {
+  margin-bottom: 35px;
+}
+
+.form-heading h2 {
+  color: #193e2b;
+  font-size: 34px;
+  letter-spacing: -1px;
+  margin: 0 0 10px;
+}
+
+.form-heading p {
+  color: #78877c;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.form-group {
+  margin-bottom: 23px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 10px;
+  color: #31553c;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.form-group input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 15px;
+  border: 1px solid #dfe8df;
+  border-radius: 7px;
+  outline: none;
+  background: #fbfdfb;
+  color: #244a32;
+  font: inherit;
+  font-size: 13px;
+  transition: 0.2s;
+}
+
+.form-group input:focus {
+  border-color: #66a574;
+  box-shadow: 0 0 0 3px #66a57418;
+}
+
+.form-group input::placeholder {
+  color: #a3b0a5;
+}
+
+.password-label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.password-label a,
+.register-text a {
+  color: #39804d;
+  font-size: 12px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.password-input {
+  position: relative;
+}
+
+.password-input input {
+  padding-right: 65px;
+}
+
+.toggle-password {
+  position: absolute;
+  top: 50%;
+  right: 14px;
+  transform: translateY(-50%);
+  border: none;
+  background: transparent;
+  color: #39804d;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.submit-btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 15px;
+  border: none;
+  border-radius: 7px;
+  background: #267747;
+  color: white;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.25s;
+}
+
+.submit-btn:hover:not(:disabled) {
+  background: #185c34;
+}
+
+.submit-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.register-text {
+  margin-top: 27px;
+  text-align: center;
+  color: #78877c;
+  font-size: 13px;
+}
+
+.register-text a {
+  margin-left: 4px;
+}
+
+.success-message {
+  text-align: center;
+}
+
+.success-icon {
+  width: 65px;
+  height: 65px;
+  display: grid;
+  place-items: center;
+  margin: 0 auto 20px;
+  border-radius: 50%;
+  background: #e5f4e5;
+  color: #267747;
+  font-size: 32px;
+  font-weight: 800;
+}
+
+.success-message h2 {
+  color: #193e2b;
+}
+
+.success-message p {
+  color: #718075;
+  font-size: 14px;
+  line-height: 1.8;
+  margin-bottom: 25px;
+}
+
+@media (max-width: 800px) {
+  .auth-page {
+    grid-template-columns: 1fr;
+  }
+
+  .auth-visual {
+    display: none;
+  }
+
+  .auth-form-section {
+    min-height: 620px;
+    padding: 55px 7%;
+  }
+
+  .mobile-brand {
+    display: block;
+    margin-bottom: 55px;
+    color: #267747;
+    font-size: 23px;
+    font-weight: 800;
+  }
+}
+
+@media (max-width: 450px) {
+  .form-heading h2 {
+    font-size: 29px;
+  }
+
+  .auth-form-section {
+    padding: 40px 6%;
+  }
+}
