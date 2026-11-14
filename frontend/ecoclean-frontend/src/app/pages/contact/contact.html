@@ -1,0 +1,149 @@
+
+<main class="contact-page">
+
+  <!-- Hero -->
+  <section class="contact-hero">
+    <span class="eyebrow">GET IN TOUCH</span>
+    <h1>Let's Start a <span>Conversation.</span></h1>
+    <p>
+      Have a question, suggestion, or need help?
+      We'd love to hear from you.
+    </p>
+  </section>
+
+  <!-- Contact Content -->
+  <section class="contact-section">
+
+    <div class="contact-info">
+      <span class="eyebrow">CONTACT INFORMATION</span>
+      <h2>We're Here to Help.</h2>
+      <p class="info-description">
+        Reach out to the EcoClean team. We're happy to hear your
+        feedback and help you with waste management queries.
+      </p>
+
+      <div class="info-item">
+        <div class="info-icon">✉️</div>
+        <div>
+          <h3>Email Us</h3>
+          <p>support@ecoclean.example</p>
+        </div>
+      </div>
+
+      <div class="info-item">
+        <div class="info-icon">📍</div>
+        <div>
+          <h3>Our Location</h3>
+          <p>Gujarat, India</p>
+        </div>
+      </div>
+
+      <div class="info-item">
+        <div class="info-icon">🕒</div>
+        <div>
+          <h3>Working Hours</h3>
+          <p>Monday – Saturday</p>
+          <small>9:00 AM – 6:00 PM</small>
+        </div>
+      </div>
+
+      <div class="contact-note">
+        <span>🌿</span>
+        <p>
+          Together, we can make our communities cleaner
+          and greener.
+        </p>
+      </div>
+    </div>
+
+    <!-- Contact Form -->
+    <div class="contact-form-card">
+
+      @if (!submitted) {
+        <div class="form-heading">
+          <h2>Send Us a Message</h2>
+          <p>Fill in the details below and we'll be glad to hear from you.</p>
+        </div>
+
+        <form (ngSubmit)="onSubmit()" #contactForm="ngForm">
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="name">Your Name</label>
+              <input
+                id="name"
+                type="text"
+                name="name"
+                [(ngModel)]="name"
+                placeholder="Enter your name"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="email">Email Address</label>
+              <input
+                id="email"
+                type="email"
+                name="email"
+                [(ngModel)]="email"
+                placeholder="Enter your email"
+                required
+                email
+              />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="subject">Subject</label>
+            <input
+              id="subject"
+              type="text"
+              name="subject"
+              [(ngModel)]="subject"
+              placeholder="What is this regarding?"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="message">Your Message</label>
+            <textarea
+              id="message"
+              name="message"
+              [(ngModel)]="message"
+              rows="5"
+              placeholder="Write your message here..."
+              required
+            ></textarea>
+          </div>
+
+          <button
+            type="submit"
+            class="submit-btn"
+            [disabled]="contactForm.invalid"
+          >
+            Send Message <span>→</span>
+          </button>
+
+        </form>
+      } @else {
+        <div class="success-message">
+          <div class="success-icon">✓</div>
+          <h2>Thank You!</h2>
+          <p>
+            Your message has been entered successfully.
+            The form is currently a frontend demonstration;
+            no message has been sent to the EcoClean team yet.
+          </p>
+          <button class="submit-btn" (click)="resetForm()">
+            Send Another Message
+          </button>
+        </div>
+      }
+
+    </div>
+
+  </section>
+
+</main>
