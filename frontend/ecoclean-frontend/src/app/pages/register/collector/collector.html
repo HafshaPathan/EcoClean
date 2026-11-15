@@ -1,0 +1,551 @@
+
+<section class="collector-page">
+
+  <div class="collector-container">
+
+    <!-- Page Heading -->
+    <div class="page-heading">
+
+      <a routerLink="/register" class="back-link">
+        <i class="fa-solid fa-arrow-left"></i>
+        Back to registration
+      </a>
+
+      <span class="eyebrow">JOIN OUR COLLECTION TEAM</span>
+
+      <h1>Individual Collector Registration</h1>
+
+      <p>
+        Apply to become an EcoClean waste collector.
+        Complete your details and submit the required
+        identity proof for verification.
+      </p>
+
+    </div>
+
+    <!-- Verification Notice -->
+    <div class="verification-notice">
+
+      <div class="notice-icon">
+        <i class="fa-solid fa-shield-halved"></i>
+      </div>
+
+      <div>
+        <h3>Identity verification required</h3>
+        <p>
+          Your profile photograph, identity document and
+          application details will be reviewed by an
+          EcoClean Administrator. You can access collection
+          operations only after your application is approved.
+        </p>
+      </div>
+
+    </div>
+
+    <!-- Success Message -->
+    @if (submitted) {
+
+      <div class="success-card">
+
+        <div class="success-icon">
+          <i class="fa-solid fa-check"></i>
+        </div>
+
+        <h2>Application Prepared Successfully!</h2>
+
+        <span class="pending-badge">
+          <i class="fa-solid fa-clock"></i>
+          Pending Verification
+        </span>
+
+        <p>
+          Your form passed the frontend checks. However,
+          it has not been sent to EcoClean because the
+          backend registration and document upload
+          service have not yet been connected.
+        </p>
+
+        <a routerLink="/" class="primary-button">
+          Return to Home
+        </a>
+
+      </div>
+
+    } @else {
+
+      <form
+        #collectorForm="ngForm"
+        (ngSubmit)="onSubmit()"
+        class="collector-form"
+      >
+
+        <!-- SECTION 01: PERSONAL INFORMATION -->
+        <div class="form-section">
+
+          <div class="section-heading">
+
+            <div class="section-number">01</div>
+
+            <div>
+              <h2>Personal Information</h2>
+              <p>Enter your basic personal details.</p>
+            </div>
+
+          </div>
+
+          <div class="form-grid">
+
+            <div class="form-group full-width">
+              <label for="fullName">Full Legal Name *</label>
+
+              <input
+                type="text"
+                id="fullName"
+                name="fullName"
+                [(ngModel)]="fullName"
+                placeholder="Enter your full name as on ID"
+                required
+                minlength="3"
+                autocomplete="name"
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="email">Email Address *</label>
+
+              <input
+                type="email"
+                id="email"
+                name="email"
+                [(ngModel)]="email"
+                placeholder="example@email.com"
+                required
+                email
+                autocomplete="email"
+              />
+
+              <small>Email verification will be required.</small>
+            </div>
+
+            <div class="form-group">
+              <label for="phone">Mobile Number *</label>
+
+              <input
+                type="tel"
+                id="phone"
+                name="phone"
+                [(ngModel)]="phone"
+                placeholder="Enter your mobile number"
+                required
+                pattern="[0-9]{10}"
+                maxlength="10"
+                autocomplete="tel"
+              />
+
+              <small>Enter your 10-digit mobile number.</small>
+            </div>
+
+            <div class="form-group full-width">
+              <label for="address">Residential Address *</label>
+
+              <textarea
+                id="address"
+                name="address"
+                [(ngModel)]="address"
+                placeholder="House number, street, city, state and PIN code"
+                rows="3"
+                required
+              ></textarea>
+            </div>
+
+            <!-- Profile Photograph -->
+            <div class="form-group full-width">
+
+              <label>Profile Photograph *</label>
+
+              <div class="profile-upload-area">
+
+                @if (profilePhotoPreview) {
+
+                  <div class="profile-preview">
+                    <img
+                      [src]="profilePhotoPreview"
+                      alt="Collector profile photo preview"
+                    />
+                  </div>
+
+                } @else {
+
+                  <div class="profile-placeholder">
+                    <i class="fa-solid fa-user"></i>
+                  </div>
+
+                }
+
+                <div class="profile-upload-content">
+
+                  <strong>
+                    {{ profilePhotoName || 'Upload your profile photograph' }}
+                  </strong>
+
+                  <span>
+                    Use a recent, clear photograph of yourself.
+                  </span>
+
+                  <label for="profilePhoto" class="profile-browse">
+                    Choose Photo
+                  </label>
+
+                  <input
+                    type="file"
+                    id="profilePhoto"
+                    name="profilePhoto"
+                    class="file-input"
+                    accept=".jpg,.jpeg,.png"
+                    (change)="onProfilePhotoSelected($event)"
+                  />
+
+                  <small>JPG or PNG · Maximum 2 MB</small>
+
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+        <!-- SECTION 02: IDENTITY VERIFICATION -->
+        <div class="form-section">
+
+          <div class="section-heading">
+
+            <div class="section-number">02</div>
+
+            <div>
+              <h2>Identity Verification</h2>
+              <p>
+                Provide your identity document details
+                and upload supporting proof.
+              </p>
+            </div>
+
+          </div>
+
+          <div class="identity-warning">
+            <i class="fa-solid fa-lock"></i>
+
+            <p>
+              Your identity information must be handled securely.
+              Only authorized verification personnel should
+              be able to access it.
+            </p>
+          </div>
+
+          <div class="form-grid">
+
+            <div class="form-group">
+              <label for="identityType">Identity Document Type *</label>
+
+              <select
+                id="identityType"
+                name="identityType"
+                [(ngModel)]="identityType"
+                required
+              >
+                <option value="" disabled>Select document type</option>
+                <option value="Driving Licence">Driving Licence</option>
+                <option value="Voter ID">Voter ID</option>
+                <option value="Passport">Passport</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="identityNumber">Document Number *</label>
+
+              <input
+                type="text"
+                id="identityNumber"
+                name="identityNumber"
+                [(ngModel)]="identityNumber"
+                placeholder="Enter document number"
+                required
+                autocomplete="off"
+              />
+            </div>
+
+            <!-- Identity Document Upload -->
+            <div class="form-group full-width">
+
+              <label>Upload Identity Document *</label>
+
+              <label for="identityDocument" class="upload-box">
+
+                <div class="upload-icon">
+                  <i class="fa-solid fa-cloud-arrow-up"></i>
+                </div>
+
+                <div class="upload-content">
+
+                  @if (selectedFileName) {
+                    <strong>{{ selectedFileName }}</strong>
+                    <span>Document selected successfully</span>
+                  } @else {
+                    <strong>Click to upload your ID document</strong>
+                    <span>JPG, PNG or PDF · Maximum 5 MB</span>
+                  }
+
+                </div>
+
+                <span class="browse-button">Browse</span>
+
+              </label>
+
+              <input
+                type="file"
+                id="identityDocument"
+                name="identityDocument"
+                class="file-input"
+                accept=".jpg,.jpeg,.png,.pdf"
+                (change)="onFileSelected($event)"
+              />
+
+              <small>
+                Upload a clear and readable document.
+                Do not upload documents belonging to another person.
+              </small>
+
+            </div>
+
+          </div>
+
+        </div>
+
+        <!-- SECTION 03: WORK INFORMATION -->
+        <div class="form-section">
+
+          <div class="section-heading">
+
+            <div class="section-number">03</div>
+
+            <div>
+              <h2>Work Information</h2>
+              <p>Tell us about your collection experience.</p>
+            </div>
+
+          </div>
+
+          <div class="form-grid">
+
+            <div class="form-group full-width">
+              <label for="serviceArea">Preferred Service Area *</label>
+
+              <input
+                type="text"
+                id="serviceArea"
+                name="serviceArea"
+                [(ngModel)]="serviceArea"
+                placeholder="Enter your preferred city or area"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="experience">Previous Experience *</label>
+
+              <select
+                id="experience"
+                name="experience"
+                [(ngModel)]="experience"
+                required
+              >
+                <option value="" disabled>Select experience</option>
+                <option value="No experience">No experience</option>
+                <option value="Less than 1 year">Less than 1 year</option>
+                <option value="1–3 years">1–3 years</option>
+                <option value="3–5 years">3–5 years</option>
+                <option value="More than 5 years">More than 5 years</option>
+              </select>
+
+              <small>
+                Applicants without experience can also apply.
+              </small>
+            </div>
+
+            <div class="form-group">
+              <label for="previousOrganization">
+                Previous Organization
+                <span class="optional">(Optional)</span>
+              </label>
+
+              <input
+                type="text"
+                id="previousOrganization"
+                name="previousOrganization"
+                [(ngModel)]="previousOrganization"
+                placeholder="Previous employer or organization"
+              />
+            </div>
+
+          </div>
+
+          <div class="experience-note">
+            <i class="fa-solid fa-circle-info"></i>
+
+            <p>
+              Experience information may be checked by the Admin.
+              Additional supporting evidence can be requested
+              during application review.
+            </p>
+          </div>
+
+        </div>
+
+        <!-- SECTION 04: ACCOUNT SECURITY -->
+        <div class="form-section">
+
+          <div class="section-heading">
+
+            <div class="section-number">04</div>
+
+            <div>
+              <h2>Create Account Credentials</h2>
+              <p>Choose a password to secure your account.</p>
+            </div>
+
+          </div>
+
+          <div class="form-grid">
+
+            <div class="form-group">
+              <label for="password">Password *</label>
+
+              <div class="password-wrapper">
+
+                <input
+                  [type]="showPassword ? 'text' : 'password'"
+                  id="password"
+                  name="password"
+                  [(ngModel)]="password"
+                  placeholder="Minimum 8 characters"
+                  required
+                  minlength="8"
+                  autocomplete="new-password"
+                />
+
+                <button
+                  type="button"
+                  class="password-toggle"
+                  (click)="showPassword = !showPassword"
+                  [attr.aria-label]="showPassword ? 'Hide password' : 'Show password'"
+                >
+                  <i
+                    [class]="showPassword ? 'fa-solid fa-eye-slash' : 'fa-solid fa-eye'"
+                  ></i>
+                </button>
+
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="confirmPassword">Confirm Password *</label>
+
+              <div class="password-wrapper">
+
+                <input
+                  [type]="showConfirmPassword ? 'text' : 'password'"
+                  id="confirmPassword"
+                  name="confirmPassword"
+                  [(ngModel)]="confirmPassword"
+                  placeholder="Re-enter your password"
+                  required
+                  autocomplete="new-password"
+                />
+
+                <button
+                  type="button"
+                  class="password-toggle"
+                  (click)="showConfirmPassword = !showConfirmPassword"
+                  [attr.aria-label]="showConfirmPassword ? 'Hide password' : 'Show password'"
+                >
+                  <i
+                    [class]="showConfirmPassword ? 'fa-solid fa-eye-slash' : 'fa-solid fa-eye'"
+                  ></i>
+                </button>
+
+              </div>
+            </div>
+
+          </div>
+
+          <div class="security-note">
+            <i class="fa-solid fa-shield-halved"></i>
+
+            <span>
+              Your password must be securely hashed by the
+              backend before account storage.
+            </span>
+          </div>
+
+        </div>
+
+        <!-- TERMS AND CONDITIONS -->
+        <div class="terms-section">
+
+          <label class="terms-label">
+
+            <input
+              type="checkbox"
+              name="termsAccepted"
+              [(ngModel)]="termsAccepted"
+              required
+            />
+
+            <span>
+              I confirm that the information provided is accurate,
+              that the identity document belongs to me, and that
+              I agree to the EcoClean verification and privacy process.
+            </span>
+
+          </label>
+
+        </div>
+
+        <!-- ERROR MESSAGE -->
+        @if (errorMessage) {
+
+          <div class="error-message">
+            <i class="fa-solid fa-circle-exclamation"></i>
+            {{ errorMessage }}
+          </div>
+
+        }
+
+        <!-- SUBMIT BUTTON -->
+        <div class="submit-section">
+
+          <button
+            type="submit"
+            class="submit-button"
+            [disabled]="collectorForm.invalid"
+          >
+            Submit for Verification
+            <i class="fa-solid fa-arrow-right"></i>
+          </button>
+
+          <p>
+            Already have an account?
+            <a routerLink="/login">Sign in</a>
+          </p>
+
+        </div>
+
+      </form>
+
+    }
+
+  </div>
+
+</section>

@@ -1,212 +1,181 @@
 
-<main class="auth-page">
+<section class="register-page">
 
-  <!-- Left Visual Section -->
-  <section class="auth-visual">
-    <div class="visual-content">
+  <div class="register-container">
 
-      <a routerLink="/" class="brand">
-        <span class="brand-icon">🌿</span>
-        <span>Eco<span>Clean</span></span>
-      </a>
+    <!-- Page Heading -->
+    <div class="page-heading">
+      <span class="eyebrow">JOIN ECOCLEAN</span>
 
-      <div class="visual-message">
-        <span class="eyebrow">JOIN THE ECOCLEAN COMMUNITY</span>
-        <h1>Be Part of a <span>Cleaner Future.</span></h1>
-        <p>
-          Create your account and take a step towards
-          smarter waste management and cleaner surroundings.
-        </p>
-      </div>
+      <h1>Create Your Account</h1>
 
-      <div class="visual-bottom">
-        <span>♻️</span>
-        <p>Every contribution makes a difference.</p>
-      </div>
-
+      <p>
+        Choose the account type that best describes you
+        and become part of a cleaner, greener community.
+      </p>
     </div>
-  </section>
 
-  <!-- Registration Form -->
-  <section class="auth-form-section">
-    <div class="auth-card">
+    <!-- Public Registration -->
+    <div class="registration-section">
 
-      <div class="mobile-brand">
-        <span>🌿</span> EcoClean
-      </div>
+      <h2>Public Registration</h2>
+      <p class="section-description">
+        Select an account type to get started.
+      </p>
 
-      @if (!submitted) {
+      <div class="registration-grid">
 
-        <div class="form-heading">
-          <span class="eyebrow">CREATE YOUR ACCOUNT</span>
-          <h2>Get Started!</h2>
-          <p>Enter your details to join the EcoClean community.</p>
-        </div>
+        <!-- Citizen -->
+        <article class="registration-card">
 
-        <form #registerForm="ngForm" (ngSubmit)="onSubmit()">
-
-          <!-- Full Name -->
-          <div class="form-group">
-            <label for="fullName">Full Name</label>
-            <input
-              id="fullName"
-              type="text"
-              name="fullName"
-              [(ngModel)]="fullName"
-              placeholder="Enter your full name"
-              required
-              minlength="3"
-            />
+          <div class="card-icon citizen-icon">
+            <i class="fa-solid fa-user"></i>
           </div>
 
-          <!-- Email and Phone -->
-          <div class="form-row">
+          <span class="card-label">FOR RESIDENTS</span>
 
-            <div class="form-group">
-              <label for="email">Email Address</label>
-              <input
-                id="email"
-                type="email"
-                name="email"
-                [(ngModel)]="email"
-                placeholder="Enter your email"
-                required
-                email
-              />
-            </div>
+          <h3>Citizen</h3>
 
-            <div class="form-group">
-              <label for="phone">Phone Number</label>
-              <!--input
-                id="phone"
-                type="tel"
-                name="phone"
-                [(ngModel)]="phone"
-                placeholder="10-digit number"
-                [(ngModel)]="phone"
-                required
-                pattern="[0-9]{10}"
-                maxlength="10"
-              /-->
-              <input
-  id="phone"
-  type="tel"
-  name="phone"
-  [(ngModel)]="phone"
-  placeholder="10-digit number"
-  required
-  pattern="[0-9]{10}"
-  maxlength="10"
-/>
-            </div>
-
-          </div>
-
-          <!-- Account Role -->
-          <div class="form-group">
-            <label for="role">Select Account Type</label>
-            <select
-              id="role"
-              name="role"
-              [(ngModel)]="role"
-              required
-            >
-              <option value="Citizen">Citizen</option>
-              <option value="Waste Collector">Waste Collector</option>
-            </select>
-          </div>
-
-          <!-- Password -->
-          <div class="form-group">
-            <label for="password">Password</label>
-
-            <div class="password-input">
-              <input
-                id="password"
-                [type]="showPassword ? 'text' : 'password'"
-                name="password"
-                [(ngModel)]="password"
-                placeholder="Create a password"
-                required
-                minlength="8"
-              />
-
-              <button
-                type="button"
-                class="toggle-password"
-                (click)="showPassword = !showPassword"
-              >
-                {{ showPassword ? 'Hide' : 'Show' }}
-              </button>
-            </div>
-
-            <small class="field-hint">
-              Use at least 8 characters.
-            </small>
-          </div>
-
-          <!-- Confirm Password -->
-          <div class="form-group">
-            <label for="confirmPassword">Confirm Password</label>
-
-            <div class="password-input">
-              <input
-                id="confirmPassword"
-                [type]="showConfirmPassword ? 'text' : 'password'"
-                name="confirmPassword"
-                [(ngModel)]="confirmPassword"
-                placeholder="Enter your password again"
-                required
-              />
-
-              <button
-                type="button"
-                class="toggle-password"
-                (click)="showConfirmPassword = !showConfirmPassword"
-              >
-                {{ showConfirmPassword ? 'Hide' : 'Show' }}
-              </button>
-            </div>
-          </div>
-
-          @if (errorMessage) {
-            <p class="error-message">{{ errorMessage }}</p>
-          }
-
-          <button
-            type="submit"
-            class="submit-btn"
-            [disabled]="registerForm.invalid"
-          >
-            Create Account <span>→</span>
-          </button>
-
-        </form>
-
-        <p class="login-text">
-          Already have an account?
-          <a routerLink="/login">Sign In</a>
-        </p>
-
-      } @else {
-
-        <div class="success-message">
-          <div class="success-icon">✓</div>
-          <h2>Registration Form Completed!</h2>
           <p>
-            Your form details passed the basic validation.
-            Actual account creation and database storage
-            will be connected to the backend later.
+            Report garbage, request waste collection
+            and contribute to a cleaner neighbourhood.
           </p>
 
-          <a routerLink="/login" class="submit-btn">
-            Go to Login
+          <ul>
+            <li>Report garbage on roads</li>
+            <li>Request waste collection</li>
+            <li>Track collection requests</li>
+          </ul>
+
+          <a routerLink="/register/citizen" class="card-button">
+            Register as Citizen
+            <i class="fa-solid fa-arrow-right"></i>
           </a>
+
+        </article>
+
+        <!-- Individual Collector -->
+        <article class="registration-card">
+
+          <div class="card-icon collector-icon">
+            <i class="fa-solid fa-truck"></i>
+          </div>
+
+          <span class="card-label">FOR INDIVIDUALS</span>
+
+          <h3>Individual Collector</h3>
+
+          <p>
+            Register as an individual waste collector
+            and help manage waste collection in your area.
+          </p>
+
+          <ul>
+            <li>Receive collection assignments</li>
+            <li>Manage assigned tasks</li>
+            <li>Update collection status</li>
+          </ul>
+
+          <a routerLink="/register/collector" class="card-button">
+            Register as Individual
+            <i class="fa-solid fa-arrow-right"></i>
+          </a>
+
+        </article>
+
+        <!-- Organization -->
+        <article class="registration-card featured-card">
+
+          <div class="card-icon organization-icon">
+            <i class="fa-solid fa-building"></i>
+          </div>
+
+          <span class="card-label">FOR BUSINESSES</span>
+
+          <h3>Waste Collection Organization</h3>
+
+          <p>
+            Register your waste management company
+            or organization to participate in EcoClean.
+          </p>
+
+          <ul>
+            <li>Submit organization details</li>
+            <li>Provide business verification</li>
+            <li>Apply for collection operations</li>
+          </ul>
+
+          <a routerLink="/register/organization" class="card-button">
+            Register Organization
+            <i class="fa-solid fa-arrow-right"></i>
+          </a>
+
+        </article>
+
+      </div>
+    </div>
+
+    <!-- Restricted Registration -->
+    <div class="restricted-section">
+
+      <div class="restricted-heading">
+        <div>
+          <h2>Restricted Accounts</h2>
+          <p>
+            These accounts are created or authorized by the EcoClean Admin.
+          </p>
         </div>
 
-      }
+        <span class="restricted-badge">
+          <i class="fa-solid fa-lock"></i>
+          Restricted
+        </span>
+      </div>
+
+      <div class="restricted-grid">
+
+        <div class="restricted-card">
+          <div class="restricted-icon">
+            <i class="fa-solid fa-recycle"></i>
+          </div>
+
+          <div>
+            <h3>Processing Staff</h3>
+            <p>
+              For authorized staff who handle sorting,
+              recycling and waste processing.
+            </p>
+            <span>Admin invitation required</span>
+          </div>
+        </div>
+
+        <div class="restricted-card">
+          <div class="restricted-icon">
+            <i class="fa-solid fa-user-shield"></i>
+          </div>
+
+          <div>
+            <h3>Administrator</h3>
+            <p>
+              Manages users, organizations, collection
+              operations and the complete platform.
+            </p>
+            <span>Protected account creation</span>
+          </div>
+        </div>
+
+      </div>
 
     </div>
-  </section>
 
-</main>
+    <!-- Login Link -->
+    <div class="login-prompt">
+      <p>
+        Already have an account?
+        <a routerLink="/login">Sign in</a>
+      </p>
+    </div>
+
+  </div>
+
+</section>
