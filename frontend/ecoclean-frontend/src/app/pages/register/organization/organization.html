@@ -1,0 +1,467 @@
+
+<div class="organization-page">
+
+  <div class="registration-container">
+
+    <a routerLink="/register" class="back-link">
+      <i class="fa-solid fa-arrow-left"></i>
+      Back to registration
+    </a>
+
+    <div class="page-heading">
+      <span class="eyebrow">EC0CLEAN PARTNER REGISTRATION</span>
+      <h1>Register Your Organization</h1>
+      <p>
+        Join EcoClean as a waste collection organization and
+        help build a cleaner, greener community.
+      </p>
+    </div>
+
+    <div class="verification-notice">
+      <i class="fa-solid fa-shield-halved"></i>
+      <div>
+        <strong>Organization verification required</strong>
+        <p>
+          Your application will be reviewed by the EcoClean
+          Admin before your organization account is activated.
+        </p>
+      </div>
+    </div>
+
+    @if (submitted) {
+      <div class="success-card">
+        <div class="success-icon">
+          <i class="fa-solid fa-check"></i>
+        </div>
+
+        <h2>Application submitted!</h2>
+
+        <p>
+          Your organization registration form has passed the
+          frontend demonstration checks.
+        </p>
+
+        <p class="pending-note">
+          Backend integration is not connected yet. No
+          application or document has actually been transmitted.
+        </p>
+
+        <a routerLink="/login" class="login-link">
+          Go to Login
+        </a>
+      </div>
+    } @else {
+
+      <form #organizationForm="ngForm"
+            (ngSubmit)="onSubmit()"
+            class="registration-form">
+
+        <!-- SECTION 01 -->
+        <section class="form-section">
+
+          <div class="section-heading">
+            <span class="section-number">01</span>
+            <div>
+              <h2>Organization Information</h2>
+              <p>Enter your organization's official details.</p>
+            </div>
+          </div>
+
+          <div class="form-grid">
+
+            <div class="form-group full-width">
+              <label>Organization Name *</label>
+              <input
+                type="text"
+                name="organizationName"
+                [(ngModel)]="organizationName"
+                placeholder="Enter official organization name"
+                required
+                minlength="2">
+            </div>
+
+            <div class="form-group">
+              <label>Organization Type *</label>
+              <select
+                name="organizationType"
+                [(ngModel)]="organizationType"
+                required>
+                <option value="" disabled>Select organization type</option>
+                <option value="Private Company">Private Company</option>
+                <option value="Partnership">Partnership Firm</option>
+                <option value="Proprietorship">Sole Proprietorship</option>
+                <option value="NGO">NGO</option>
+                <option value="Cooperative">Cooperative Society</option>
+                <option value="Government">Government Organization</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label>Registration Number *</label>
+              <input
+                type="text"
+                name="registrationNumber"
+                [(ngModel)]="registrationNumber"
+                placeholder="Enter registration number"
+                required>
+            </div>
+
+            <div class="form-group">
+              <label>Official Email *</label>
+              <input
+                type="email"
+                name="organizationEmail"
+                [(ngModel)]="organizationEmail"
+                placeholder="organization@example.com"
+                required>
+            </div>
+
+            <div class="form-group">
+              <label>Official Phone Number *</label>
+              <input
+                type="tel"
+                name="organizationPhone"
+                [(ngModel)]="organizationPhone"
+                [(ngModel)]="organizationPhone"
+                placeholder="10-digit phone number"
+                pattern="[0-9]{10}"
+                maxlength="10"
+                required>
+            </div>
+
+            <div class="form-group full-width">
+              <label>Website <span>(Optional)</span></label>
+              <input
+                type="url"
+                name="website"
+                [(ngModel)]="website"
+                placeholder="https://www.example.com">
+            </div>
+
+          </div>
+        </section>
+
+        <!-- SECTION 02 -->
+        <section class="form-section">
+
+          <div class="section-heading">
+            <span class="section-number">02</span>
+            <div>
+              <h2>Authorized Representative</h2>
+              <p>Details of the person responsible for this account.</p>
+            </div>
+          </div>
+
+          <div class="form-grid">
+
+            <div class="form-group">
+              <label>Full Name *</label>
+              <input
+                type="text"
+                name="representativeName"
+                [(ngModel)]="representativeName"
+                placeholder="Representative's full name"
+                required>
+            </div>
+
+            <div class="form-group">
+              <label>Designation *</label>
+              <input
+                type="text"
+                name="representativeDesignation"
+                [(ngModel)]="representativeDesignation"
+                placeholder="e.g. Manager, Director"
+                required>
+            </div>
+
+            <div class="form-group">
+              <label>Representative Email *</label>
+              <input
+                type="email"
+                name="representativeEmail"
+                [(ngModel)]="representativeEmail"
+                placeholder="Enter email address"
+                required>
+            </div>
+
+            <div class="form-group">
+              <label>Representative Phone *</label>
+              <input
+                type="tel"
+                name="representativePhone"
+                [(ngModel)]="representativePhone"
+                placeholder="10-digit phone number"
+                pattern="[0-9]{10}"
+                maxlength="10"
+                required>
+            </div>
+
+          </div>
+        </section>
+
+        <!-- SECTION 03 -->
+        <section class="form-section">
+
+          <div class="section-heading">
+            <span class="section-number">03</span>
+            <div>
+              <h2>Address & Service Area</h2>
+              <p>Where does your organization operate?</p>
+            </div>
+          </div>
+
+          <div class="form-grid">
+
+            <div class="form-group full-width">
+              <label>Registered Address *</label>
+              <textarea
+                name="address"
+                [(ngModel)]="address"
+                placeholder="Enter complete registered address"
+                rows="3"
+                required>
+              </textarea>
+            </div>
+
+            <div class="form-group">
+              <label>City *</label>
+              <input
+                type="text"
+                name="city"
+                [(ngModel)]="city"
+                placeholder="Enter city"
+                required>
+            </div>
+
+            <div class="form-group">
+              <label>State *</label>
+              <input
+                type="text"
+                name="state"
+                [(ngModel)]="state"
+                required>
+            </div>
+
+            <div class="form-group">
+              <label>PIN Code *</label>
+              <input
+                type="text"
+                name="pincode"
+                [(ngModel)]="pincode"
+                placeholder="6-digit PIN code"
+                pattern="[0-9]{6}"
+                maxlength="6"
+                required>
+            </div>
+
+            <div class="form-group">
+              <label>Preferred Service Area *</label>
+              <input
+                type="text"
+                name="serviceArea"
+                [(ngModel)]="serviceArea"
+                placeholder="Areas or districts served"
+                required>
+            </div>
+
+          </div>
+        </section>
+
+        <!-- SECTION 04 -->
+        <section class="form-section">
+
+          <div class="section-heading">
+            <span class="section-number">04</span>
+            <div>
+              <h2>Operational Details</h2>
+              <p>Tell us about your collection operations.</p>
+            </div>
+          </div>
+
+          <div class="form-grid">
+
+            <div class="form-group">
+              <label>Number of Employees</label>
+              <select
+                name="employeeCount"
+                [(ngModel)]="employeeCount">
+                <option value="">Select employee count</option>
+                <option value="1-5">1–5</option>
+                <option value="6-10">6–10</option>
+                <option value="11-25">11–25</option>
+                <option value="26-50">26–50</option>
+                <option value="50+">More than 50</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label>Collection Vehicles</label>
+              <select
+                name="vehicleCount"
+                [(ngModel)]="vehicleCount">
+                <option value="">Select vehicle count</option>
+                <option value="0">No vehicles</option>
+                <option value="1-2">1–2</option>
+                <option value="3-5">3–5</option>
+                <option value="6-10">6–10</option>
+                <option value="10+">More than 10</option>
+              </select>
+            </div>
+
+          </div>
+
+          <div class="information-note">
+            <i class="fa-solid fa-circle-info"></i>
+            <p>
+              Employee and vehicle details are optional at this
+              stage. Verified organizations can coordinate with
+              EcoClean Admin to manage their collection staff.
+            </p>
+          </div>
+
+        </section>
+
+        <!-- SECTION 05 -->
+        <section class="form-section">
+
+          <div class="section-heading">
+            <span class="section-number">05</span>
+            <div>
+              <h2>Registration Document</h2>
+              <p>Upload a supporting document for verification.</p>
+            </div>
+          </div>
+
+          <div class="upload-box">
+            <i class="fa-solid fa-cloud-arrow-up upload-icon"></i>
+
+            <h3>Upload Registration Certificate *</h3>
+
+            <p>
+              Upload your organization registration certificate
+              or another relevant official document.
+            </p>
+
+            <label class="upload-button">
+              <i class="fa-solid fa-paperclip"></i>
+              Choose Document
+
+              <input
+                type="file"
+                accept=".pdf,.jpg,.jpeg,.png"
+                (change)="onDocumentSelected($event)">
+            </label>
+
+            @if (registrationDocumentName) {
+              <div class="selected-file">
+                <i class="fa-solid fa-file-circle-check"></i>
+                <span>{{ registrationDocumentName }}</span>
+              </div>
+            }
+
+            <small>PDF, JPG or PNG · Maximum size 5 MB</small>
+          </div>
+
+        </section>
+
+        <!-- SECTION 06 -->
+        <section class="form-section">
+
+          <div class="section-heading">
+            <span class="section-number">06</span>
+            <div>
+              <h2>Account Security</h2>
+              <p>Create login credentials for your organization.</p>
+            </div>
+          </div>
+
+          <div class="form-grid">
+
+            <div class="form-group">
+              <label>Password *</label>
+
+              <div class="password-wrapper">
+                <input
+                  [type]="showPassword ? 'text' : 'password'"
+                  name="password"
+                  [(ngModel)]="password"
+                  placeholder="Minimum 8 characters"
+                  minlength="8"
+                  required>
+
+                <button
+                  type="button"
+                  class="password-toggle"
+                  (click)="showPassword = !showPassword">
+                  <i [class]="showPassword ? 'fa-solid fa-eye-slash' : 'fa-solid fa-eye'"></i>
+                </button>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label>Confirm Password *</label>
+
+              <div class="password-wrapper">
+                <input
+                  [type]="showConfirmPassword ? 'text' : 'password'"
+                  name="confirmPassword"
+                  [(ngModel)]="confirmPassword"
+                  placeholder="Re-enter password"
+                  required>
+
+                <button
+                  type="button"
+                  class="password-toggle"
+                  (click)="showConfirmPassword = !showConfirmPassword">
+                  <i [class]="showConfirmPassword ? 'fa-solid fa-eye-slash' : 'fa-solid fa-eye'"></i>
+                </button>
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+        <!-- TERMS -->
+        <div class="terms-group">
+          <input
+            type="checkbox"
+            id="terms"
+            name="termsAccepted"
+            [(ngModel)]="termsAccepted"
+            required>
+
+          <label for="terms">
+            I confirm that the information provided is accurate
+            and agree to EcoClean's verification and privacy
+            requirements.
+          </label>
+        </div>
+
+        @if (errorMessage) {
+          <div class="error-message">
+            <i class="fa-solid fa-circle-exclamation"></i>
+            {{ errorMessage }}
+          </div>
+        }
+
+        <button
+          type="submit"
+          class="submit-button"
+          [disabled]="organizationForm.invalid">
+
+          Submit Organization Application
+          <i class="fa-solid fa-arrow-right"></i>
+
+        </button>
+
+        <p class="login-prompt">
+          Already registered?
+          <a routerLink="/login">Login to your account</a>
+        </p>
+
+      </form>
+    }
+
+  </div>
+</div>
