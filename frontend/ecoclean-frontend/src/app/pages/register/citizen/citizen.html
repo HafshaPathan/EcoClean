@@ -5,14 +5,19 @@
     <!-- Left Information Panel -->
     <div class="welcome-panel">
 
+      <span class="welcome-ring ring-one" aria-hidden="true"></span>
+      <span class="welcome-ring ring-two" aria-hidden="true"></span>
+
       <a routerLink="/" class="brand">
-        <span class="brand-icon">🌿</span>
+        <span class="brand-icon" aria-hidden="true">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>
+        </span>
         EcoClean
       </a>
 
       <div class="welcome-content">
 
-        <span class="welcome-label">CITIZEN REGISTRATION</span>
+        <span class="welcome-label">Citizen registration</span>
 
         <h1>Be a part of a <span>cleaner tomorrow.</span></h1>
 
@@ -23,9 +28,18 @@
         </p>
 
         <div class="benefit-list">
-          <div>✓ Report garbage from your area</div>
-          <div>✓ Request doorstep waste collection</div>
-          <div>✓ Track your collection requests</div>
+          <div>
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+            Report garbage from your area
+          </div>
+          <div>
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+            Request doorstep waste collection
+          </div>
+          <div>
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+            Track your collection requests
+          </div>
         </div>
 
       </div>
@@ -42,12 +56,15 @@
       <div class="form-heading">
 
         <a routerLink="/register" class="back-link">
-          ← Back to account types
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5"/><path d="m11 6-6 6 6 6"/></svg>
+          Back to account types
         </a>
 
-        <div class="form-role-icon">👤</div>
+        <div class="form-role-icon" aria-hidden="true">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21v-1a7 7 0 0 1 16 0v1"/></svg>
+        </div>
 
-        <h2>Create Citizen Account</h2>
+        <h2>Create your citizen account</h2>
 
         <p>Enter your details to get started with EcoClean.</p>
 
@@ -59,7 +76,7 @@
 
           <!-- Full Name -->
           <div class="form-group">
-            <label for="fullName">Full Name</label>
+            <label for="fullName">Full name</label>
 
             <input
               type="text"
@@ -74,65 +91,68 @@
             />
 
             @if (nameInput.invalid && nameInput.touched) {
-              <small class="field-error">
+              <small class="field-error" role="alert">
                 Please enter your name (at least 3 characters).
               </small>
             }
           </div>
 
-          <!-- Email -->
-          <div class="form-group">
-            <label for="email">Email Address</label>
+          <!-- Email + Phone -->
+          <div class="form-row">
 
-            <input
-              type="email"
-              id="email"
-              name="email"
-              [(ngModel)]="email"
-              #emailInput="ngModel"
-              placeholder="you@example.com"
-              required
-              email
-              autocomplete="email"
-            />
+            <div class="form-group">
+              <label for="email">Email address</label>
 
-            @if (emailInput.invalid && emailInput.touched) {
-              <small class="field-error">
-                Please enter a valid email address.
-              </small>
-            }
-          </div>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                [(ngModel)]="email"
+                #emailInput="ngModel"
+                placeholder="you@example.com"
+                required
+                email
+                autocomplete="email"
+              />
 
-          <!-- Phone -->
-          <div class="form-group">
-            <label for="phone">Mobile Number</label>
+              @if (emailInput.invalid && emailInput.touched) {
+                <small class="field-error" role="alert">
+                  Please enter a valid email address.
+                </small>
+              }
+            </div>
 
-            <input
-              type="tel"
-              id="phone"
-              name="phone"
-              [(ngModel)]="phone"
-              #phoneInput="ngModel"
-              placeholder="Enter 10-digit mobile number"
-              required
-              pattern="[6-9][0-9]{9}"
-              maxlength="10"
-              inputmode="numeric"
-              autocomplete="tel"
-            />
+            <div class="form-group">
+              <label for="phone">Mobile number</label>
 
-            @if (phoneInput.invalid && phoneInput.touched) {
-              <small class="field-error">
-                Enter a valid 10-digit Indian mobile number.
-              </small>
-            }
+              <input
+                type="tel"
+                id="phone"
+                name="phone"
+                [(ngModel)]="phone"
+                #phoneInput="ngModel"
+                placeholder="10-digit mobile number"
+                required
+                pattern="[6-9][0-9]{9}"
+                maxlength="10"
+                inputmode="numeric"
+                autocomplete="tel"
+              />
+
+              @if (phoneInput.invalid && phoneInput.touched) {
+                <small class="field-error" role="alert">
+                  Enter a valid 10-digit Indian mobile number.
+                </small>
+              }
+            </div>
+
           </div>
 
           <!-- Address -->
           <div class="form-group">
             <label for="address">
-              Default Address
-              <span class="optional">(Optional)</span>
+              Default address
+              <span class="optional">(optional)</span>
             </label>
 
             <textarea
@@ -145,72 +165,87 @@
             ></textarea>
           </div>
 
-          <!-- Password -->
-          <div class="form-group">
-            <label for="password">Password</label>
+          <!-- Passwords -->
+          <div class="form-row">
 
-            <div class="password-wrapper">
-              <input
-                [type]="showPassword ? 'text' : 'password'"
-                id="password"
-                name="password"
-                [(ngModel)]="password"
-                #passwordInput="ngModel"
-                placeholder="Create a password"
-                required
-                minlength="8"
-                autocomplete="new-password"
-              />
+            <div class="form-group">
+              <label for="password">Password</label>
 
-              <button
-                type="button"
-                class="password-toggle"
-                (click)="showPassword = !showPassword"
-              >
-                {{ showPassword ? 'Hide' : 'Show' }}
-              </button>
+              <div class="password-wrapper">
+                <input
+                  [type]="showPassword ? 'text' : 'password'"
+                  id="password"
+                  name="password"
+                  [(ngModel)]="password"
+                  #passwordInput="ngModel"
+                  placeholder="Create a password"
+                  required
+                  minlength="8"
+                  autocomplete="new-password"
+                />
+
+                <button
+                  type="button"
+                  class="password-toggle"
+                  [attr.aria-pressed]="showPassword"
+                  [attr.aria-label]="showPassword ? 'Hide password' : 'Show password'"
+                  (click)="showPassword = !showPassword"
+                >
+                  @if (showPassword) {
+                    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9.9 4.24A9.1 9.1 0 0 1 12 4c6.5 0 10 8 10 8a13.2 13.2 0 0 1-1.67 2.68"/><path d="M6.61 6.61A13.5 13.5 0 0 0 2 12s3.5 8 10 8a9.7 9.7 0 0 0 5.39-1.61"/><path d="m2 2 20 20"/><path d="M14.12 14.12a3 3 0 1 1-4.24-4.24"/></svg>
+                  } @else {
+                    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/></svg>
+                  }
+                </button>
+              </div>
+
+              @if (passwordInput.invalid && passwordInput.touched) {
+                <small class="field-error" role="alert">
+                  Password must contain at least 8 characters.
+                </small>
+              }
             </div>
 
-            @if (passwordInput.invalid && passwordInput.touched) {
-              <small class="field-error">
-                Password must contain at least 8 characters.
-              </small>
-            }
+            <div class="form-group">
+              <label for="confirmPassword">Confirm password</label>
 
-            <small class="field-hint">
-              Use at least 8 characters. Avoid using a password
-              you use on other websites.
-            </small>
-          </div>
+              <div class="password-wrapper">
+                <input
+                  [type]="showConfirmPassword ? 'text' : 'password'"
+                  id="confirmPassword"
+                  name="confirmPassword"
+                  [(ngModel)]="confirmPassword"
+                  placeholder="Re-enter your password"
+                  required
+                  autocomplete="new-password"
+                />
 
-          <!-- Confirm Password -->
-          <div class="form-group">
-            <label for="confirmPassword">Confirm Password</label>
-
-            <div class="password-wrapper">
-              <input
-                [type]="showConfirmPassword ? 'text' : 'password'"
-                id="confirmPassword"
-                name="confirmPassword"
-                [(ngModel)]="confirmPassword"
-                placeholder="Re-enter your password"
-                required
-                autocomplete="new-password"
-              />
-
-              <button
-                type="button"
-                class="password-toggle"
-                (click)="showConfirmPassword = !showConfirmPassword"
-              >
-                {{ showConfirmPassword ? 'Hide' : 'Show' }}
-              </button>
+                <button
+                  type="button"
+                  class="password-toggle"
+                  [attr.aria-pressed]="showConfirmPassword"
+                  [attr.aria-label]="showConfirmPassword ? 'Hide confirm password' : 'Show confirm password'"
+                  (click)="showConfirmPassword = !showConfirmPassword"
+                >
+                  @if (showConfirmPassword) {
+                    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9.9 4.24A9.1 9.1 0 0 1 12 4c6.5 0 10 8 10 8a13.2 13.2 0 0 1-1.67 2.68"/><path d="M6.61 6.61A13.5 13.5 0 0 0 2 12s3.5 8 10 8a9.7 9.7 0 0 0 5.39-1.61"/><path d="m2 2 20 20"/><path d="M14.12 14.12a3 3 0 1 1-4.24-4.24"/></svg>
+                  } @else {
+                    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/></svg>
+                  }
+                </button>
+              </div>
             </div>
+
           </div>
+
+          <small class="field-hint">
+            Use at least 8 characters, and avoid a password
+            you use on other websites.
+          </small>
 
           <!-- Error -->
           @if (errorMessage) {
-            <div class="error-message">
+            <div class="error-message" role="alert">
               {{ errorMessage }}
             </div>
           }
@@ -221,8 +256,8 @@
             class="submit-button"
             [disabled]="citizenForm.invalid"
           >
-            Create Citizen Account
-            <span>→</span>
+            Create account
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
           </button>
 
           <p class="login-text">
@@ -236,7 +271,9 @@
 
         <div class="success-state">
 
-          <div class="success-icon">✓</div>
+          <div class="success-icon" aria-hidden="true">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+          </div>
 
           <h2>Form validation successful!</h2>
 
@@ -248,10 +285,10 @@
 
           <button
             type="button"
-            class="submit-button"
+            class="submit-button submit-button--center"
             (click)="submitted = false"
           >
-            Back to Form
+            Back to form
           </button>
 
         </div>
